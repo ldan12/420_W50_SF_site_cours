@@ -14,11 +14,11 @@ const config: Config = {
     v4: true, // Improve compatibility with the upcoming Docusaurus v4
   },
 
-  // Set the production url of your site here
   url: 'https://ldan12.github.io',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/420-W50-SF-notes-cours/',
+  baseUrl: '/420_W50_SF_site_cours/',
+
+  organizationName: 'ldan12',
+  projectName: '420_W50_SF_site_cours',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
