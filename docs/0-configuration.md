@@ -63,6 +63,7 @@ Pour créer une application mobile (nommée firstApp) avec `Expo` en `React nati
 ```powershell title="terminal VS Code"
 npx create-expo-app firstApp
 ```
+Vous devrez choisir le SDK de votre application, **vous devez choisir *For learning with Expo Go (SDK 54)*** car la version SDK 57 n'est pas encore supportée par Expo Go (si vous désirez tester sur votre téléphone).
 
 On vous demandera surement d'installer le package `Expo`, répondez oui.
 
