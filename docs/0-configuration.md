@@ -20,7 +20,7 @@ node -v
 
 Au moment d'écrire ces lignes, `Node.js` est à la version **26**
 
-Si votre version date un peu trop (18 ou moins), il est fortement recommandé de désinstaller `Node.js` depuis vos programmes et de procéder à une nouvelle installation :
+Si votre version date un peu trop (20 ou moins), il est fortement recommandé de désinstaller `Node.js` depuis vos programmes et de procéder à une nouvelle installation :
 
 https://nodejs.org/en
 
