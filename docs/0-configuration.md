@@ -18,7 +18,7 @@ Vérifiez tout d'abord si vous avez `Node.js` d'installé :
 node -v
 ```
 
-Au moment d'écrire ces lignes, `Node.js` est à la version **22**
+Au moment d'écrire ces lignes, `Node.js` est à la version **26**
 
 Si votre version date un peu trop (18 ou moins), il est fortement recommandé de désinstaller `Node.js` depuis vos programmes et de procéder à une nouvelle installation :
 
@@ -63,7 +63,7 @@ Pour créer une application mobile (nommée firstApp) avec `Expo` en `React nati
 ```powershell title="terminal VS Code"
 npx create-expo-app firstApp
 ```
-Vous devrez choisir le SDK de votre application, **vous devez choisir *For learning with Expo Go (SDK 54)*** car la version SDK 57 n'est pas encore supportée par Expo Go (si vous désirez tester sur votre téléphone).
+Vous devrez choisir le SDK de votre application: **vous devez choisir *For learning with Expo Go (SDK 54)*** car la version SDK 57 n'est pas encore supportée par Expo Go (si vous désirez tester sur votre téléphone).
 
 On vous demandera surement d'installer le package `Expo`, répondez oui.
 
