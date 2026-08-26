@@ -38,7 +38,7 @@ Créez un fichier **.tsx** dans le dossier `components` :
 // components/Titre.tsx
 import { Text, StyleSheet } from "react-native";
 
-//Les propriétés du components, ses données pour le faire fonctionner en quelque sorte
+//Les propriétés du composant, ses données pour le faire fonctionner en quelque sorte
 type TitreProps = {
   texte: string;
 };

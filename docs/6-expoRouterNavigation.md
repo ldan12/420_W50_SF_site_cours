@@ -58,7 +58,7 @@ export default function RootLayout() {
 
 Le `RootLayout` étant le canvas principal de l'application, il sera est aussi notamment possible de styler l'entête à cet endroit. Voir la documentation à cet effet : https://docs.expo.dev/router/advanced/stack/
 
-## 2. Navigation entre les routes
+## 3. Navigation entre les routes
 
 Il faut tout d'abord importer le router offert par expo :
 
@@ -66,7 +66,7 @@ Il faut tout d'abord importer le router offert par expo :
 import { router } from "expo-router";
 ```
 
-### 2.1 Navigation vers une route via un événement
+### 3.1 Navigation vers une route via un événement
 
 ```tsx
 import { router } from "expo-router";
@@ -85,7 +85,7 @@ import { Button, View } from "react-native";
 On peut évidemment définir un méthode pour écouter le `onPress` du bouton et y coder une logique plus évoluée, par exemple vérifier si l'utilisateur est authentifié afin de le diriger vers la page ciblée ou la page d'authentification.
 
 
-### 2.1 Navigation vers une route via un lien statique
+### 3.2 Navigation vers une route via un lien statique
 
 ```tsx
 import { Link } from "expo-router";
@@ -93,7 +93,7 @@ import { Link } from "expo-router";
 <Link href="/about">À propos</Link>
 ```
 
-## 3. Routes dynamiques
+## 4. Routes dynamiques
 
 Il est aussi possible de créer des fichiers avec des noms dynamiques entre crochets :
 
@@ -128,14 +128,109 @@ export default function ProductPage() {
 }
 ```
 
-## 4. En résumé
 
-| Méthode                   | Description                                          |
-| ------------------------- | ---------------------------------------------------- |
-| `router.push("/path")`    | Navigue vers une page en ajoutant à l’historique     |
-| `router.replace("/path")` | Navigue vers une page en remplaçant la page actuelle |
-| `router.back()`           | Retour à la page précédente                          |
-| `useLocalSearchParams()`  | Récupère les paramètres passés par l’URL             |
+## 5. Groupe de routes
+
+Expo Router permet de regrouper plusieurs routes dans un même dossier, **sans que le nom de ce dossier fasse partie de l'URL**.
+
+Pour créer un groupe de routes, on utilise des parenthèses autour du nom du dossier :
+
+```
+app/
+├── _layout.tsx              ← Root Layout
+├── index.tsx
+│
+└── (tabs)/
+    ├── _layout.tsx          ← Layout du groupe
+    ├── contact.tsx
+    └── about.tsx
+```
+
+Le `RootLayout` utilise ici une `Stack` pour gérer la navigation principale :
+ 
+```tsx
+import { Stack } from "expo-router";
+
+export default function RootLayout() {
+  return (
+    <Stack>
+      <Stack.Screen
+        name="index"
+        options={{ title: "Accueil" }}
+      />
+
+      <!-- On met le groupe de routes sur la stack-->
+      <Stack.Screen
+        name="(tabs)"
+        options={{ headerShown: false }}
+      />
+    </Stack>
+  );
+}
+```
+
+On remarque que le groupe de routes (tabs) possède aussi son layout. Le groupe de route peut porter n'importe quel nom et peut lui même être une stack, on utilise ici (tabs) afin d'illustrer que ce groupe de routes peut aussi être disposé sous forme d'onglets navigables dans le bas de l'application. 
+
+
+```tsx
+//Layout du groupe
+import { Tabs } from "expo-router";
+
+export default function TabsLayout() {
+  return (
+    <Tabs>
+      <Tabs.Screen
+        name="contact"
+        options={{ title: "Contactez-nous" }}
+      />
+
+      <Tabs.Screen
+        name="about"
+        options={{ title: "À propos" }}
+      />
+    </Tabs>
+  );
+}
+```
+
+### 5.1 Navigation d'une route dans un groupe
+
+Il est important de comprendre que (tabs) ne fait pas partie du chemin de la route.
+
+Ainsi, pour naviguer vers la page contact, on utilise simplement :
+
+```tsx
+router.push("/contact");
+```
+
+et non 
+
+```tsx
+router.push("/(tabs)/contact");
+```
+
+Le groupe de routes permet donc d'organiser les fichiers sans modifier les chemins utilisés pour naviguer dans l'application.
+
+## 6. En résumé
+
+| Méthode                   | Description                                                         |
+| ------------------------- | --------------------------------------------------------------------|
+| `router.push("/path")`    | Navigue vers une page en ajoutant à l’historique                    |
+| `router.replace("/path")` | Navigue vers une page en remplaçant la page actuelle                |
+| `router.back()`           | Retour à la page précédente                                         |
+| `useLocalSearchParams()`  | Récupère les paramètres passés par l’URL                            |
+| `(groupe)`                | Regroupement de routes, le (groupe ne fait pas partie du chemin)    |
+| `_layout.tsx`             | Possible d'avoir un layout dans le groupe pour organiser les routes |
+
+
+
+
+
+
+
+
+
+
 
 
 
