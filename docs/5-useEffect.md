@@ -113,17 +113,21 @@ useEffect(() => {
 }, [count]);
 ```
 
-```bash
-Effet lancé (count=0)
+```typescript
+Effet lancé (count=0)   /*Rendu initial, aucun cleanup précédent encore*/
+/****************/
 → count devient 1
 Cleanup effectué (pour count=0)
 Effet lancé (count=1)
+/****************/
 → count devient 2
 Cleanup effectué (pour count=1)
 Effet lancé (count=2)
+//...
+//Cleanup effectué au démontage final du composant
 ```
 
-Les exemples montrés plus haut ne nécessitaient pas de return. Par contre, considérons cet effet qui démarre un timer au premier rendu :
+Considérons maintenant cet effet qui démarre un timer au premier rendu :
 
 ```tsx
 useEffect(() => {
@@ -139,7 +143,7 @@ useEffect(() => {
 }, []);
 ```
 
-Dans ce cas précis, un nettoyage de "l'effet précédent" est de mise afin d'éviter que le timer reste en mémoire au démontage du composant.
+Dans ce cas précis, le nettoyage est nécessaire afin d'arrêter le timer lorsque le composant est démonté. Cela évite que l'intervalle continue de s'exécuter alors que le composant n'est plus utilisé.
 
 ---
 
