@@ -94,7 +94,7 @@ useEffect(() => {
 
 ---
 
-## Use effect avec retour de fonction
+## `useEffect` avec retour de fonction
 
 `useEffect` **peut retourner une fonction**, cette fonction sera appelée dans 2 situations :
 
