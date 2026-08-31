@@ -100,7 +100,7 @@ Il est aussi possible de créer des fichiers avec des noms dynamiques entre croc
 ```
 app/
  └─ product/
-     └─ [id].js
+     └─ [id].tsx
 ```
 
 Dans ce cas-ci, la navigation vers cette route s'effectuera de cette façon :
@@ -210,6 +210,8 @@ router.push("/(tabs)/contact");
 ```
 
 Le groupe de routes permet donc d'organiser les fichiers sans modifier les chemins utilisés pour naviguer dans l'application.
+
+Il faut cependant être prudent en manipulant la stack de navigation lorsque notre application contient des tabs.
 
 ## 6. En résumé
 
