@@ -41,7 +41,7 @@ export interface LanguageContextType {
 
 L'idée est de venir **englober** les composants de notre application par le contexte. Nous verrons plus tard comment ceci se traduit dans le `Layout` de notre application.
 
-Dans un répertoire nommé `context`, situé au même niveau que `app`, on créer le fichier de contexte, nommé en fonction de ce qu'il gère, ici **LanguageContext.tsx**
+Dans un répertoire nommé `contexts`, situé au même niveau que `app`, on créer le fichier de contexte, nommé en fonction de ce qu'il gère, ici **LanguageContext.tsx**
 
 ```tsx
 // LanguageContext.tsx
@@ -76,6 +76,18 @@ export const LanguageContextProvider = ({ children }: { children: React.ReactNod
     </LanguageContext.Provider>
   );
 };
+```
+
+### Étape 3 : Créer un hook permettant d'obtenir le contexte
+
+Dans un dossier nommée `hooks`, on créer un fichier selon le nom du contexte (ici Language) : *useLangage.tsx*
+
+Ce fichier retournera le contexte :
+
+```tsx
+// useLangage.tsx
+import { LangageContext } from "@/contexts/LangageContext";
+import { useContext } from "react";
 
 // Hook qui permet l'utilisation du contexte
 export const useLanguage = () => {
@@ -90,23 +102,56 @@ export const useLanguage = () => {
   return value;
 };
 ```
-### Étape 3: Utiliser le context
 
-Tel que mentionné, l'idée est d'englober les composants de notre application du contexte. Ceci se fait dans le `_layout.tsx` de notre application qui, de base, ressemble à ceci :
+### Étape 4: Rendre le contexte disponible dans l'application
+
+L'idée est d'englober les composants de notre application dans le contexte. Ceci se fait dans le `_layout.tsx` de notre application qui, de base, ressemble à ceci :
+
+```tsx
+import { Stack } from "expo-router";
+
+function RootLayout() {
+    return (
+    <Stack/>
+  );
+}
+```
+
+Mais qui prendra la forme suivante pour exposer le contexte aux pages et composants de l'application :
+
+```tsx
+import { LanguageContextProvider } from "@/contexts/LanguageContext";
+import { Stack } from "expo-router";
+
+function MainLayout() {
+    return (
+    <Stack/>
+  );
+}
 
 
-///////HERE
+export default function RootLayout() {
+  return (
+    <LanguageContextProvider>
+      <MainLayout />
+    </LanguageContextProvider>
+  );
+}
+```
 
+On voit ici le principe du *children* qui aura accès au contexte, si on englobe pas le **MainLayout** du contexte, on recevra l'exception contenue dans le *hook* à l'utilisation.
 
+Note : Si on a d'autres contextes dans notre application, on englobe le bloc actuel avec ce contexte et ainsi de suite.
 
+### Étape 5: Utiliser le contexte dans l'application
 
-```jsx
-// LanguageSelector.js
-import { useContext } from "react";
-import { LanguageContext } from "./LanguageContext";
+```tsx
+// LanguageSelector.tsx
+import { useLangage } from "@/hooks/useLanguage";
 
 const LanguageSelector = () => {
-  const { language, switchLanguage } = useContext(LanguageContext);
+  //Appel du hook : Accès aux éléments du contexte (le langage actuel et la possibilité de le changer)
+  const { language, switchLanguage } = useLanguage();
 
   return (
     <div>
@@ -120,55 +165,18 @@ const LanguageSelector = () => {
 export default LanguageSelector;
 ```
 
-🔍 **Ce qui se passe ici :**
+**Ce qui se passe ici :**
 
-- `useContext(LanguageContext)` : Permet d’accéder directement à `language` et `switchLanguage` fournis par le `LanguageProvider`.
+- Le hook livre le contexte, ceci nous permet d’accéder directement à `language` et `switchLanguage` fournis par le `LanguageProvider`.
 - Le composant peut ainsi afficher et modifier la langue sans avoir besoin de recevoir de props.
-
----
-
-### Étape 3 : Intégrer dans l’application
-
-```jsx
-// App.js
-import { LanguageProvider } from "./LanguageContext";
-import LanguageSelector from "./LanguageSelector";
-
-function App() {
-  return (
-    <LanguageProvider>
-      <h1>Bienvenue dans mon application</h1>
-      <LanguageSelector />
-    </LanguageProvider>
-  );
-}
-
-export default App;
-```
-
-Ici, toute l’application est englobée dans le `LanguageProvider`, ce qui permet à **tous les composants enfants** d’accéder à la langue.
 
 ---
 
 ## Quand utiliser un contexte ?
 
-👉 Le contexte est utile quand :
+Le contexte est utile quand :
 
 - Une donnée est utilisée à plusieurs endroits éloignés dans la hiérarchie des composants.
 - La donnée est "globale" (ex. : thème, langue, utilisateur connecté, préférences).
 
-❌ Évitez le contexte si la donnée est utilisée uniquement par quelques composants proches : les props suffisent.
-
----
-
-## Résumé
-
-- `createContext` : Crée un contexte.
-- `Provider` : Fournit la valeur aux composants enfants.
-- `useContext` : Permet de consommer facilement la valeur du contexte.
-
-Avec le **LanguageContext**, nous avons vu comment partager une **langue courante** dans toute l’application sans avoir à passer des props partout.
-
----
-
-✅ Le Context API est une solution élégante pour centraliser des états globaux comme le thème, la langue ou encore des paramètres utilisateur.
+Évitez le contexte si la donnée est utilisée uniquement par quelques composants proches : les props suffisent.
