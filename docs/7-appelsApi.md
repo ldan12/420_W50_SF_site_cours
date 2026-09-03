@@ -80,7 +80,7 @@ Il est aussi possible de transiger l'objet métier (`Student`), ceci nécessite 
 ```ts
 //studentMapper.ts
 export const mapStudentListResponseToStudents = (
-  response: StudentListResponse
+  response: StudentListResponse[]
 ): Student[] => {
   return response.students.map((s) => ({
     id: s.id,
