@@ -61,16 +61,16 @@ Les appels sont regroupés dans le fichier `studentApi.ts`, ce sont des appels a
 import { StudentListResponse } from "@/types/student";
 
 const BASE_URL = //racine de l'API;
-  async function getStudents(): Promise<StudentListResponse[]> {
-    const response = await fetch(BASE_URL + "/students");
-    if (response.ok) {
-      const json = await response.json();
-      return json as StudentListResponse[];
-    } else {
-      const error = await response.text();
-      throw new Error(error);
-    }
-  };
+async function getStudents(): Promise<StudentListResponse[]> {
+  const response = await fetch(BASE_URL + "/students");
+  if (response.ok) {
+    const json = await response.json();
+    return json as StudentListResponse[];
+  } else {
+    const error = await response.text();
+    throw new Error(error);
+  }
+};
 ```
 
 L'exemple précédent fait en sorte que la réponse est renvoyée directement à l'application, ce qui peut être très utile pour gérer la **pagination** et le **total** d'éléments reçus. Cette approche impose par contre un **couplage important** entre l'application et l'API ainsi qu'une bonne compréhension de cette dernière au niveau applicatif.
