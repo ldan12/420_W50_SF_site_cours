@@ -11,6 +11,7 @@ const sidebars: SidebarsConfig = {
     'navigation',
     'api',
     'context',
+    'configfirebase',
     'firebase',
     'firestore',
   ],
