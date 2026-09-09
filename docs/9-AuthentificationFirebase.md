@@ -89,9 +89,9 @@ Remplacez le contenu du fichier `tsconfig.json` par :
 }
 ```
 
-## Context d'authentification
+## Contexte d'authentification
 
-La mise en place du contexte d'authentification est similaire aux autres contextes mis en place dans le cadre du cours. On y retrouvera notamment un **statut authentifié (ou non)** ainsi que les méthodes usuelles (signup, signin, signout).
+La mise en place du contexte d'authentification est similaire aux autres contextes mis en place dans le cadre du cours. On y retrouvera notamment un **statut authentifié (ou non)** ainsi que les méthodes usuelles (*signup*, *signin*, *signout*).
 
 Le contexte doit contenir ce `useEffect` crucial qui prend effet au premier rendu du contexte:
 
@@ -110,7 +110,7 @@ useEffect(() => {
 
 Le paramètre `auth` fait référence à la variable déclarée dans le fichier de configuration de Firebase codé plus haut.
 
-Il permet de programmer un écouteur de statut d'authentification qui vit **tant et aussi longtemps que le contexte n'est pas rechargé** (rappel : useEffect avec return).
+Il permet de programmer un écouteur de statut d'authentification qui vit **tant et aussi longtemps que le contexte n'est pas rechargé** (rappel : *useEffect* avec return).
 
 La mécanique est simple, aussitôt que le statut de l'authentification change, cet écouteur est appelé. si un `user` est récupéré, le statut est inscrit à "authentifié", le cas contraire si `user` est null.
 
@@ -148,7 +148,7 @@ export default function RootLayout() {
 }
 ```
 
-### Règles de routage dans le useEffect
+### Règles de routage dans le *useEffect*
 
 En utilisant les segments de route :
 
