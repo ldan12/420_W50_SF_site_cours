@@ -151,13 +151,13 @@ import { useLangage } from "@/hooks/useLanguage";
 
 const LanguageSelector = () => {
   //Appel du hook : Accès aux éléments du contexte (le langage actuel et la possibilité de le changer)
-  const { language, switchLanguage } = useLanguage();
+  const { language, toggleLanguage } = useLanguage();
 
   return (
     <div>
       <p>Langue actuelle : {language}</p>
-      <button onClick={() => switchLanguage("fr")}>Français</button>
-      <button onClick={() => switchLanguage("en")}>English</button>
+      <button onClick={() => toggleLanguage("fr")}>Français</button>
+      <button onClick={() => toggleLanguage("en")}>English</button>
     </div>
   );
 };
@@ -167,7 +167,7 @@ export default LanguageSelector;
 
 **Ce qui se passe ici :**
 
-- Le *hook* livre le contexte, ceci nous permet d’accéder directement à `language` et `switchLanguage` fournis par le `LanguageProvider`.
+- Le *hook* livre le contexte, ceci nous permet d’accéder directement à `language` et `toggleLanguage` fournis par le `LanguageProvider`.
 - Le composant peut ainsi afficher et modifier la langue sans avoir besoin de recevoir de *props*.
 
 ---
