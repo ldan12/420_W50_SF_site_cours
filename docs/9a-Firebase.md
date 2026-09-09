@@ -42,7 +42,7 @@ Firebase Storage : stockage de fichiers (images, vidéos, PDF, etc.) avec règle
 
 ![Project](/img/project.png)
 
-et nommez-le `ExerciceFirebase`, il sera prêt lorsque le premier exercice sera publié. Dans le processus, **n'activez pas** les options Gemini et Google analytics.
+et nommez-le `ExerciceFirebase`, il sera prêt lorsque le premier exercice sera publié. Dans le processus, **n'activez pas** les options *Gemini* et *Google analytics*.
 
 5. Une fois sur le tableau de bord du projet, créez une application **web** :
 
@@ -66,7 +66,7 @@ Note : Pour revenir à cette configuration, il suffira de cliquer sur votre app 
 
 ![Started](/img/started.png)
 
-10. Activez le module email/password :
+10. Activez le module *email/password* :
 
 ![EmailPassword](/img/emailpassword.png)
 
