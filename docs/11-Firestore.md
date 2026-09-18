@@ -89,7 +89,7 @@ Pour effectuer une requête dans un composant, il s'agit de charger la base de d
 
 ```tsx
 //importer le package :
-import { db } from '../firebaseConfig'
+import { db } from '../../firebaseConfig'
 import { setDoc } from 'firebase/firestore'
 
 //Voir la doc pour les requêtes
