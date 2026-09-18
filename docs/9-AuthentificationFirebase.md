@@ -157,3 +157,7 @@ En utilisant les segments de route :
    - Cas classique : un utilisateur s’inscrit ou se connecte depuis une page publique.
    - Avantage : Par exemple, s’il est déjà dans `(auth)` et qu’il met à jour son profil (changement dans le *user*, ce qui redéclenchera ici un `onAuthStateChanged` avec un état toujours authentifié), on ne naviguera pas inutilement.
 3. Si l’utilisateur n’est **pas authentifié**, on navigue vers **/login**.
+
+## Méthodes d'authentification de Firebase
+
+Firebase fournit différentes méthodes pour gérer la création de compte, la connexion, etc. Référez-vous à la [documentation](https://firebase.google.com/docs/auth/web/password-auth?hl=fr).
