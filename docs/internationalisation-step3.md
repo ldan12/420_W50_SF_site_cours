@@ -32,7 +32,7 @@ async function resolveInitialLanguage(): Promise<SupportedLanguage> {
       return saved as SupportedLanguage;
     }
   } catch (error) {
-    console.error("Erreur de lecture de la langue sauvegardée :", error);
+    console.log("Erreur de lecture de la langue sauvegardée :", error);
   }
 
   // Pas de langue sauvegardée : on se base sur la langue de l'appareil.
