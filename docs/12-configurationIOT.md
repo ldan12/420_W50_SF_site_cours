@@ -1,3 +1,9 @@
+---
+id: configiot
+title: Configuration IoT
+sidebar_label: Configuration IoT
+---
+
 # Configuration de l'environnement Iot (Internet Of Things)
 
 ## Extension PlatformIO

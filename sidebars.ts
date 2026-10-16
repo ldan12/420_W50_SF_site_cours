@@ -14,6 +14,7 @@ const sidebars: SidebarsConfig = {
     'configfirebase',
     'firebase',
     'firestore',
+    'configiot',
   ],
 };
 
