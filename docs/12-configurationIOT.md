@@ -40,15 +40,15 @@ Dans ce cas, il va falloir installer le pilote du micro-contrôleur.
 
 Allez sur cette page : https://www.silabs.com/software-and-tools/usb-to-uart-bridge-vcp-drivers?tab=downloads
 
-Et téléchargez le pilote nommée **CP210x Universal Windows Driver**, placez le .zip téléchargé n'importe où sur votre poste de travail, pas besoin de l'extraire.
+Et téléchargez le pilote nommée **CP210x Universal Windows Driver**, placez le .zip téléchargé n'importe où sur votre poste de travail et procédez à l'extraction dans un dossier.
 
 Retournez dans le gestionnaire de périphériques et cliquez-droit sur le périphérique qui apparaît en erreur :
 
 - Choisissez l'option d'installer le pilote
 - Choisissez l'option de parcourir votre poste de travail
-- Spécifiez le fichier .zip téléchargé en guise de pilote et procédez à l'installation
+- Spécifiez le dossier téléchargé en guise de pilote et procédez à l'installation
 
-Si l'opération fonctionne, le micro-contrôleur sera reconnu et déplacé dans la section des ports COM et LPT de votre gestionnaire de périphériques, prenez en note le # du port COM attribué.
+Si l'opération fonctionne, le micro-contrôleur sera reconnu, vous pouvez alors retourner dans VSCode et faire le test.
 
 ### Création d'un projet PlatformIO
 
