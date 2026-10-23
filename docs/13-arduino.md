@@ -116,9 +116,9 @@ Si on alimente une LED avec la broche D13,
 le courant sort de D13 → traverse la LED → passe dans la résistance → retourne au GND.
 Ce trajet complet forme une boucle fermée : sans GND, le courant ne circule pas.
 
-**À ne jamais faire : court-circuiter le GND et le +5V**
+**À ne jamais faire : court-circuiter le GND et le +3.3V**
 
-Un court-circuit se produit lorsque le courant trouve un chemin direct entre le +5V et le GND sans résistance entre les deux.
+Un court-circuit se produit lorsque le courant trouve un chemin direct entre le +3.3V et le GND sans résistance entre les deux.
 
 Résultat :
 
@@ -137,6 +137,7 @@ Tension selon la carte
 
 
 **Envoyer 5V sur une broche 3.3V détruit l’entrée du microcontrôleur !**
+**Nous utiliserons principalement le 3.3.V**
 
 ## Premier exemple - LED
 
@@ -165,7 +166,7 @@ void loop() {
 
 Que se passe-t-il ici ?
 
-  - digitalWrite(13, HIGH) : envoie 5V sur la broche D13.
+  - digitalWrite(13, HIGH) : envoie 3.3V sur la broche D13.
   - Le courant passe dans la LED → la résistance → le GND.  
   - La LED s’allume
   - Puis LOW coupe le courant → LED s’éteint.
@@ -173,7 +174,7 @@ Que se passe-t-il ici ?
 
 
 → Sans connexion au GND, la LED ne s’allumerait jamais.
-→ Et si on reliait accidentellement D13 directement à GND sans résistance, on raut court-circuit immédiat.
+→ Et si on reliait accidentellement D13 directement à GND sans résistance, on aurait un court-circuit immédiat.
 
 ## Capteurs et actionneurs
 
