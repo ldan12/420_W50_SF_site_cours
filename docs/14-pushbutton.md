@@ -6,7 +6,7 @@ sidebar_label: Push Button
 
 
 
-# 🎛️ Le *Push Button* (Bouton-poussoir) — Présentation complète
+# Le *Push Button* (Bouton-poussoir) — Présentation complète
 
 ## 1. Qu’est-ce qu’un *push button* ?
 
