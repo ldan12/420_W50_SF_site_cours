@@ -62,11 +62,19 @@ Quand on appuie sur un bouton, le contact mécanique **rebondit** :
 ### Solution :
 
 ```cpp
-if (digitalRead(buttonPin) == HIGH) {
-  delay(50); // petit délai pour ignorer les rebonds
-  if (digitalRead(buttonPin) == HIGH) {
-    // vrai appui confirmé
-  }
+if (digitalRead(buttonPin) == LOW) {
+    delay(50);
+
+    if (digitalRead(buttonPin) == LOW) {
+        Serial.println("Bouton appuyé !");
+
+        // Optionnel : Attendre que le bouton soit relâché si on en a besoin
+        while (digitalRead(buttonPin) == LOW) {
+            delay(10);
+        }
+
+        delay(50); // Optionnel si relâchement géré : Anti-rebond au relâchement
+    }
 }
 ```
 
@@ -97,10 +105,22 @@ void setup() {
 }
 
 void loop() {
-  if (digitalRead(buttonPin) == LOW) { // LOW = appui
-    digitalWrite(ledPin, HIGH); // allume la LED
-    delay(500);                 // garde la LED allumée 500ms
-    digitalWrite(ledPin, LOW);  // éteint la LED
+  if (digitalRead(buttonPin) == LOW) {
+    delay(50);
+
+    //Appui confirmé
+    if (digitalRead(buttonPin) == LOW) {
+      digitalWrite(ledPin, HIGH); // allume la LED
+      delay(500);                 // garde la LED allumée 500ms
+      digitalWrite(ledPin, LOW);  // éteint la LED
+    }
+
+    // Ici c'est utile d'attendre le relâchement afin de ne pas redéclencher un allumage
+    while (digitalRead(buttonPin) == LOW) {
+        delay(10);
+    }
+
+    delay(50); // Anti-rebond au relâchement
   }
 }
 ```
