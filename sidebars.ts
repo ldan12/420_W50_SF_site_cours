@@ -16,6 +16,7 @@ const sidebars: SidebarsConfig = {
     'firestore',
     'configiot',
 	'arduino',
+	'pushbutton',
   ],
 };
 
