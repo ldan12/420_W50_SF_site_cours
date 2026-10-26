@@ -126,7 +126,7 @@ void loop() {
 
 | Type de résistance | Câblage du bouton | Lecture quand **appuyé** | Lecture quand **relâché** |
 |--------------------|------------------:|---------------------------|-----------------------------|
-| **Pull-down externe** | Bouton entre **+5V** et la pin | `HIGH` | `LOW` |
+| **Pull-down externe** | Bouton entre **+3.3V** et la pin | `HIGH` | `LOW` |
 | **Pull-up interne (`INPUT_PULLUP`)** | Bouton entre **GND** et la pin | `LOW` | `HIGH` |
 
 ### Résumé
@@ -155,7 +155,7 @@ if (pressed) {
 
 ## 7. Front descendant
 
-Un front descendant (ou front négatif) correspond au moment précis où un signal passe de l’état HAUT à l’état BAS. En d’autres mots : le signal “descend” de 1 (HIGH) vers 0 (LOW).
+Un front descendant (ou front négatif) corespond au moment précis où un signal passe de l’état HAUT à l’état BAS. En d’autres mots : le signal “descend” de 1 (HIGH) vers 0 (LOW).
 
 | Type de front | Transition | Signification courante |
 |---------------|------------|------------------------|
