@@ -22,24 +22,19 @@ Il permet à un microcontrôleur (comme un Arduino ou ESP32) de **détecter une 
 
 Le bouton possède **4 pattes**, mais elles sont en réalité **connectées 2 à 2** (les côtés opposés sont reliés entre eux).
 
-### Schéma courant avec résistance de *pull-down* :
+### La résistance de rappel (pull-up et pull-down)
 
-```
-   +5V
-    │
-    │
-   [Bouton]
-    │
-    ├───► Pin numérique (ex: 2)
-    │
-   [10kΩ] ← résistance de pull-down
-    │
-   GND
-```
+Une entrée numérique (GPIO) doit être reliée à une tension connue pour que le microcontrôleur puisse déterminer son état (HIGH ou LOW).
 
-Explication :
-- Quand le bouton est **relâché**, la résistance tire la broche vers **LOW (0V)**.  
-- Quand on **appuie**, la broche est reliée directement à **+5V (HIGH)**.  
+Lorsqu'un bouton-poussoir est relâché, le circuit est ouvert. Si la pin n'est reliée ni au 3,3 V ni au GND, elle se retrouve dans un état flottant. Elle peut alors retourner aléatoirement HIGH ou LOW.
+
+Pour éviter ce problème, on utilise une résistance de rappel, qui permet de maintenir la pin à un état électrique connu lorsque le bouton n'est pas appuyé.
+
+Il existe deux configurations :
+
+Pull-down : la résistance relie la pin au GND. Au repos, la pin lit LOW (0 V). Lorsqu'on appuie sur le bouton, elle reçoit 3,3 V et lit HIGH.
+
+Pull-up : la résistance relie la pin au 3,3 V. Au repos, la pin lit HIGH. Lorsqu'on appuie sur le bouton, elle est reliée au GND et lit LOW.
 
 ### Variante plus simple : utiliser la résistance interne de l’Arduino
 
