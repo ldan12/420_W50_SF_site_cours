@@ -132,7 +132,7 @@ void loop() {
 ### Résumé
 
 - **Pull-down externe** → nécessite une résistance physique entre la pin et GND.  
-- **Pull-up interne** → utilise la résistance intégrée de l’Arduino pour relier la pin à +5V.  
+- **Pull-up interne** → utilise la résistance intégrée de l’Arduino pour relier la pin à +3.3V.  
 
 Les deux méthodes donnent le même résultat logique, seul le **sens du signal** est inversé.  
 
