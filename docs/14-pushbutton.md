@@ -20,7 +20,7 @@ Il permet à un microcontrôleur (comme un Arduino ou ESP32) de **détecter une 
 
 ## 2. Branchement typique
 
-Le bouton possède **4 pattes**, mais elles sont en réalité **connectées 2 à 2** (les côtés opposés sont reliés entre eux).
+Le bouton possède **4 pattes**, mais elles sont en réalité **connectées 2 à 2** (les côtés opposés sont reliés entre eux). Il faut donc faire les branchements sur des pattes en **diagonales**: une pour le GND et l'autre sur l'entrée (GPIO) du microcontrôleur.
 
 ### La résistance de rappel (pull-up et pull-down)
 
