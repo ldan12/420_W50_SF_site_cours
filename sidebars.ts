@@ -17,6 +17,7 @@ const sidebars: SidebarsConfig = {
     'configiot',
 	'arduino',
 	'pushbutton',
+	'mqtt',
   ],
 };
 
