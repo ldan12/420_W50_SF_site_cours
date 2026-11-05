@@ -32,7 +32,7 @@ Les jokers s'utilisent seulement dans un abonnement, jamais pour publier.
 
 | Joker |	Signification |	Exemple d'abonnement | Reçoit |
 |----------|-------------|---------------------|--------|
-| +	| Un seul niveau | cours/esp32/+/mouvement |	cours/esp32/karine/mouvement <br> cours/esp32/marc/mouvement |
+| +	| Un seul niveau | cours/esp32/+/mouvement |	cours/esp32/karine/mouvement <br /> cours/esp32/marc/mouvement |
 | # |	Tous les niveaux restants (à la fin seulement) |	cours/esp32/# |	Tout ce qui est sous cours/esp32/ |
 
 
@@ -55,7 +55,7 @@ La bibliothèque PubSubClient publie uniquement en QoS 0 et s'abonne en QoS 0 ou
 | Broker	| Type |	Remarque |
 |---------|------|-----------|
 | Mosquitto (Eclipse) |	Libre, à installer soi-même (serveur, Raspberry Pi) |	Référence, très léger |
-| HiveMQ public <br> (broker.hivemq.com) |	Public et gratuit	| Pour les essais seulement <br> aucune authentification |
+| HiveMQ public <br /> (broker.hivemq.com) |	Public et gratuit	| Pour les essais seulement <br /> aucune authentification |
 | EMQX, HiveMQ Cloud	| Services infonuagiques | Plus de fonctions, création de compte |
 
 Pour une page web, le navigateur ne peut pas ouvrir de connexion MQTT directe : il utilise MQTT sur WebSocket, sur un port différent selon le *broker* (à vérifier dans sa documentation).
