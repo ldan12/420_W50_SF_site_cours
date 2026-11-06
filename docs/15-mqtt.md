@@ -14,7 +14,7 @@ MQTT est un protocole de messagerie léger où les appareils publient des messag
 Sur un microcontrôleur, chaque octet et chaque connexion comptent. MQTT garde une connexion TCP ouverte et envoie de très petits messages, alors qu'HTTP envoie des en-têtes volumineux à chaque requête.
 
 
-## Architecture : broker, éditeurs et abonnés
+## Architecture : *broker*, éditeurs et abonnés
 
 Les clients ne se parlent jamais directement. Le broker reçoit chaque message et le redistribue à tous les clients abonnés au bon topic. L'éditeur (*publisher*) ignore qui reçoit ses messages, et l'abonné (*subscriber*) ignore qui les a émis. Un même client peut être les deux à la fois.
 
@@ -48,7 +48,7 @@ Le QoS précise la garantie de livraison d'un message entre deux maillons (clien
 | 2   |	Exactement une fois	| Livré une seule fois |	Quatre messages d'échange |	Commandes critiques |
 
 
-La bibliothèque PubSubClient publie uniquement en QoS 0 et s'abonne en QoS 0 ou 1. Dans l'exercice 8, un message peut donc être perdu si le réseau est instable.
+La bibliothèque `PubSubClient` publie uniquement en QoS 0 et s'abonne en QoS 0 ou 1. Dans l'exercice 8, un message peut donc être perdu si le réseau est instable.
 
 ## Choisir un *broker*
 
