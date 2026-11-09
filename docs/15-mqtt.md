@@ -7,7 +7,7 @@ sidebar_label: MQTT
 
 # MQTT
 
-MQTT est un protocole de messagerie léger où les appareils publient des messages sur des sujets (*topics*) et d'autres s'y abonnent, par l'intermédiaire d'un serveur central appelé *broker*. Il est conçu pour les objets connectés, comme l'ESP32 utilisé dans le cours.
+MQTT (Message Queuing Telemetry Transport) est un protocole de messagerie léger où les appareils publient des messages sur des sujets (*topics*) et d'autres s'y abonnent, par l'intermédiaire d'un serveur central appelé *broker*. Il est conçu pour les objets connectés, comme l'ESP32 utilisé dans le cours.
 
 ## Pourquoi MQTT?
 
